@@ -23,9 +23,6 @@ pipeline {
                 // sh 'npm run test'
                 
                 sh 'npm run storybook' // Build Storybook
-                
-                // Package the Storybook build artifacts
-                archiveArtifacts artifacts: 'storybook-static/**/*', fingerprint: true
             }
         }
     }
