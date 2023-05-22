@@ -3,7 +3,7 @@ pipeline {
     docker {
       image 'node' // Use the desired Node.js version or any other base image
       registryCredentialsId 'docker-hub-credentials' // Jenkins credentials for Docker Hub
-      args '-v /var/run/docker.sock:/var/run/docker.sock -u root' // Run the Docker container as root user
+      args '-v /var/run/docker.sock:/var/run/docker.sock:rw -u root' // Run the Docker container as root user
     }
   }
 
