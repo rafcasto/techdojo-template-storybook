@@ -16,8 +16,7 @@ pipeline {
             }
             
             steps {
-                checkout() // Checkout your source code
-                
+            
                 sh 'npm install' // Install project dependencies
                 
                 // Optionally, run any additional build steps, such as tests
