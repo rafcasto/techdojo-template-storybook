@@ -1,14 +1,16 @@
 pipeline {
-  agent {
-    docker {
-      image 'node' // Use the desired Node.js version or any other base image
-      registryCredentialsId 'docker-hub-credentials' // Jenkins credentials for Docker Hub
-      args '-v /var/run/docker.sock:/var/run/docker.sock:rw -u root' // Run the Docker container as root user
-    }
+    agent none 
   }
 
   stages {
     stage('Build') {
+         agent {
+            docker {
+            image 'node' // Use the desired Node.js version or any other base image
+            registryCredentialsId 'docker-hub-credentials' // Jenkins credentials for Docker Hub
+            args '-v /var/run/docker.sock:/var/run/docker.sock:rw -u root' // Run the Docker container as root user
+            }
+         }
       steps {
         // Clone your repository or perform any necessary setup steps
         // before building the Docker image
@@ -21,20 +23,36 @@ pipeline {
     }
 
     stage('Test') {
+        agent {
+            docker {
+            image 'node' // Use the desired Node.js version or any other base image
+            registryCredentialsId 'docker-hub-credentials' // Jenkins credentials for Docker Hub
+            args '-v /var/run/docker.sock:/var/run/docker.sock:rw -u root' // Run the Docker container as root user
+            }
+         }
       steps {
        sh 'npm test'
       }
     }
 
     stage('Publish') {
-      steps {
-        sh 'docker build -t rafcasto/storybook .'
-        // Tag the Docker image with the desired version
-        sh 'docker tag rafcasto/storybook rafcasto/storybook:latest'
-
-        // Push the Docker image to Docker Hub
-        sh 'docker push rafcasto/storybook:latest'
-      }
+      agent {
+                docker {
+                    image 'docker:latest'
+                }
+            }
+            environment {
+                registry = 'rafcasto'
+                credentialsId = 'docker-hub-credentials'
+                imageName = 'techdojo-ui-component'
+            }
+            steps {
+                withCredentials([string(credentialsId: credentialsId, variable: 'DOCKER_PASSWORD')]) {
+                    sh 'docker login -u rafcasto -p $DOCKER_PASSWORD'
+                    sh "docker tag $imageName $registry/$imageName:latest"
+                    sh "docker push $registry/$imageName:latest"
+                }
+            }
     }
   }
 }
