@@ -16,25 +16,24 @@ pipeline {
         // git 'https://github.com/your/repository.git'
 
         // Build the Storybook Docker image
-        sh 'docker build -t your-username/storybook .'
+        sh 'npm install'
       }
     }
 
     stage('Test') {
       steps {
-        // Run any necessary tests or checks on the Docker image
-        // For example:
-        // sh 'docker run your-username/storybook npm run test'
+       sh 'npm test'
       }
     }
 
     stage('Publish') {
       steps {
+        sh 'docker build -t rafcasto/storybook .'
         // Tag the Docker image with the desired version
-        sh 'docker tag your-username/storybook your-username/storybook:latest'
+        sh 'docker tag rafcasto/storybook rafcasto/storybook:latest'
 
         // Push the Docker image to Docker Hub
-        sh 'docker push your-username/storybook:latest'
+        sh 'docker push rafcasto/storybook:latest'
       }
     }
   }
