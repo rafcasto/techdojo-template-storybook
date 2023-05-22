@@ -25,7 +25,7 @@ pipeline {
         
         stage('Docker Build & Push') {
             steps {
-                sh 'docker build -t rafcasto/techdojo-storybook-app:${env.BUILD_NUMBER} .'
+                sh 'docker ps'
             }
         }
     }
