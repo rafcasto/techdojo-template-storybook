@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node' // Specify the base Docker image to use
-            args '-u root' // Optionally, specify additional Docker container arguments
+            args '-u root -v /var/run/docker.sock:/var/run/docker.sock' // Optionally, specify additional Docker container arguments
         }
     }
     
