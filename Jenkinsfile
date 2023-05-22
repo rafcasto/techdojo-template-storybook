@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:14' // Specify the base Docker image to use
+            image 'node' // Specify the base Docker image to use
             args '-u root' // Optionally, specify additional Docker container arguments
         }
     }
