@@ -26,12 +26,6 @@ pipeline {
         stage('Docker Build & Push') {
             steps {
                 sh 'docker build -t rafcasto/techdojo-storybook-app:${env.BUILD_NUMBER} .'
-                script {
-                    dockerImage = 'rafcasto/techdojo-storybook-app:${env.BUILD_NUMBER}'
-                    docker.withRegistry( '', 'docker-hub-credentials') {
-                        dockerImage.push()
-                    }
-                }
             }
         }
     }
