@@ -1,28 +1,34 @@
 pipeline {
-    agent none
+    agent {
+        docker {
+            image 'node:14' // Specify the base Docker image to use
+            args '-u root' // Optionally, specify additional Docker container arguments
+        }
+    }
     
     stages {
-        stage('Build and Package') {
-            agent {
-                docker {
-                    image 'node' // Choose the appropriate Node.js version
-                    args '-p 6006:6006' // Port mapping for Storybook UI (if needed)
-                }
-            }
-            
-            environment {
-                // Set environment variables if required
-                NODE_ENV = 'production'
-            }
-            
+        
+        
+        stage('Build') {
             steps {
-            
-                sh 'npm install' // Install project dependencies
-                
-                // Optionally, run any additional build steps, such as tests
-                // sh 'npm run test'
-                
-                sh 'npm run storybook' // Build Storybook
+                sh 'npm install'
+                sh 'npm run build-storybook'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                // Add your testing commands here
+                sh 'npm test'
+            }
+        }
+        
+        stage('Docker Build & Push') {
+            steps {
+                withDockerRegistry([credentialsId: 'docker-hub-credentials', url: '']) {
+                    sh 'docker build -t rafcasto/techdojo-storybook-app:${env.BUILD_NUMBER} .'
+                    sh 'docker push rafcasto/techdojo-storybook-app:${env.BUILD_NUMBER}'
+                }
             }
         }
     }
