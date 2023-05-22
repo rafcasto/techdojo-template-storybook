@@ -22,7 +22,7 @@ pipeline {
                 // Optionally, run any additional build steps, such as tests
                 // sh 'npm run test'
                 
-                sh 'npm run build-storybook' // Build Storybook
+                sh 'npm run storybook' // Build Storybook
                 
                 // Package the Storybook build artifacts
                 archiveArtifacts artifacts: 'storybook-static/**/*', fingerprint: true
