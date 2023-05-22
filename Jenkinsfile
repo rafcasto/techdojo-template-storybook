@@ -25,7 +25,7 @@ pipeline {
         
         stage('Docker Build & Push') {
             steps {
-                sh 'sudo docker ps'
+                sh 'docker ps'
             }
         }
     }
