@@ -1,13 +1,19 @@
 FROM node
 
-WORKDIR /app
+# This is optional. Sets the level of logging that you see
+ENV NPM_CONFIG_LOGLEVEL warn
 
-COPY package.json ./
+# Create app directory
+WORKDIR /usr/src/app
 
-RUN npm install
-
+# Copy project files into the docker image
 COPY . .
 
-RUN npm run storybook
+# Install app dependencies
+RUN npm set progress=false && npm install
 
-CMD ["npm", "run", "storybook"]
+# Make port 6006 available
+EXPOSE 6006
+
+# run storybook app
+CMD ["yarn", "run", "storybook"]
