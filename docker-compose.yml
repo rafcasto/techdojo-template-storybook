@@ -1,14 +1,25 @@
 version: '3'
 services:
-  outer_container:
-    image: docker:dind
+  host_container:
+    image: ubuntu:latest
     privileged: true
+    networks:
+      - mynetwork
     ports:
       - "6007:6007"
+    environment:
+      - HOST_IP=172.17.0.1
     depends_on:
       - storybook
-      
+
   storybook:
     image: rafcasto/techdojo-ui-component:$version
+    networks:
+      - mynetwork
     ports:
       - 6006:6006
+    
+  
+  networks:
+    mynetwork:
+      external: true
