@@ -1,5 +1,13 @@
 version: '3'
 services:
+  outer_container:
+    image: docker:dind
+    privileged: true
+    ports:
+      - "6007:6007"
+    depends_on:
+      - storybook
+      
   storybook:
     image: rafcasto/techdojo-ui-component:$version
     ports:
