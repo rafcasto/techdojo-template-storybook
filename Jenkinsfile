@@ -65,7 +65,11 @@ pipeline {
                 }
             }
             steps{
-                sh 'docker-compose up -d --force-recreate'
+                script {
+                withEnv(["version=${env.BUILD_NUMBER}"]) {
+                    sh 'docker-compose up -d --force-recreate'
+                }
+                
              }
         }
     }

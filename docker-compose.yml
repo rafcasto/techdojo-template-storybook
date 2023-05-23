@@ -1,6 +1,6 @@
 version: '3'
 services:
   storybook:
-    image: rafcasto/techdojo-ui-component:latest
+    image: rafcasto/techdojo-ui-component:$version
     ports:
       - 6006:6006
