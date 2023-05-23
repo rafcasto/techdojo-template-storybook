@@ -49,13 +49,13 @@ pipeline {
             }
             steps {
               
-                  
-                    sh "docker tag $imageName $registry/$imageName:latest"
+                    sh "docker build -t $imageName $registry/$imageName:${env.BUILD_NUMBER} ." // Build Docker image
+                    
                    
      
 
                  script {
-                    dockerImage = "$registry/$imageName:latest"
+                    dockerImage = "$registry/$imageName:${env.BUILD_NUMBER}"
                     docker.withRegistry( '', credentialsId ) {
                         dockerImage.push()
                     }
