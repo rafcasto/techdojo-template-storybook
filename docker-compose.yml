@@ -6,7 +6,7 @@ services:
     networks:
       - mynetwork
     ports:
-      - "6007:6007"
+      - "7007:7007"
     environment:
       - HOST_IP=172.17.0.1
     depends_on:
