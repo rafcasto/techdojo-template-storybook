@@ -4,3 +4,5 @@ services:
     image: rafcasto/techdojo-ui-component:$version
     ports:
       - 6006:6006
+    networks:
+      - jenkins
