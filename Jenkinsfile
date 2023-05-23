@@ -39,6 +39,7 @@ pipeline {
       agent {
                 docker {
                     image 'docker:latest'
+                    args '-v /var/run/docker.sock:/var/run/docker.sock:rw -v /usr/bin/docker:/usr/bin/docker:rw -u root:root'  
                 }
             }
             environment {
