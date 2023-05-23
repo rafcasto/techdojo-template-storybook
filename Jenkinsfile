@@ -47,10 +47,17 @@ pipeline {
                 imageName = 'techdojo-ui-component'
             }
             steps {
-                withCredentials([string(credentialsId: credentialsId, variable: 'DOCKER_PASSWORD')]) {
-                    sh 'docker login -u rafcasto -p $DOCKER_PASSWORD'
+              
+                  
                     sh "docker tag $imageName $registry/$imageName:latest"
-                    sh "docker push $registry/$imageName:latest"
+                   
+     
+
+                 script {
+                    dockerImage = "$registry/$imageName:latest"
+                    docker.withRegistry( '', registryCredential ) {
+                        dockerImage.push()
+                    }
                 }
             }
     }
