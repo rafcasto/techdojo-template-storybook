@@ -55,7 +55,7 @@ pipeline {
 
                  script {
                     dockerImage = "$registry/$imageName:latest"
-                    docker.withRegistry( '', registryCredential ) {
+                    docker.withRegistry( '', credentialsId ) {
                         dockerImage.push()
                     }
                 }
