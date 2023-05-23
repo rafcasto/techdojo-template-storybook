@@ -20,6 +20,7 @@ services:
       - 6006:6006
     
   
-  networks:
-    mynetwork:
-      external: true
+networks:
+  mynetwork:
+    driver: bridge
+      
