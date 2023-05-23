@@ -55,7 +55,7 @@ pipeline {
      
 
                  script {
-                    dockerImage = "$registry/$imageName:${env.BUILD_NUMBER}"
+                    dockerImage = docker.build "$registry/$imageName:${env.BUILD_NUMBER}"
                     docker.withRegistry( '', credentialsId ) {
                         dockerImage.push()
                     }
