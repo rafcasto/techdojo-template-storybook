@@ -69,7 +69,7 @@ pipeline {
                 withEnv(["version=${env.BUILD_NUMBER}"]) {
                     sh 'docker-compose up -d --force-recreate'
                 }
-                
+                }
              }
         }
     }
