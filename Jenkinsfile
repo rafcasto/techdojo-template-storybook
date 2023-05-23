@@ -49,7 +49,7 @@ pipeline {
             }
             steps {
               
-                    sh "docker build -t $imageName $registry/$imageName:${env.BUILD_NUMBER} ." // Build Docker image
+                    sh "docker build -t $registry/$imageName:${env.BUILD_NUMBER} ." // Build Docker image
                     
                    
      
