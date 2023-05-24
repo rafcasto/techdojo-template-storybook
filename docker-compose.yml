@@ -1,28 +1,14 @@
 version: '3'
 services:
-  host_container:
-    image: ubuntu:latest
-    privileged: true
-    networks:
-      - mynetwork
-    ports:
-      - "7007:7007"
-    environment:
-      - HOST_IP=172.17.0.1
-    depends_on:
-      - storybook
-
   storybook:
     image: rafcasto/techdojo-ui-component:$version
     environment:
       - HOST_IP=172.17.0.1
-    networks:
-      - mynetwork
     ports:
-      - 6006:6006
+      - 6006:600
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - /usr/bin/docker:/usr/bin/docker:rw
+    user: root:root
     
   
-networks:
-  mynetwork:
-    driver: bridge
-      
