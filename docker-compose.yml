@@ -2,13 +2,8 @@ version: '3'
 services:
   storybook:
     image: rafcasto/techdojo-ui-component:$version
-    environment:
-      - HOST_IP=172.17.0.1
     ports:
       - 6006:600
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:rw
-      - /usr/bin/docker:/usr/bin/docker:rw
-    user: root:root
+    
     
   
