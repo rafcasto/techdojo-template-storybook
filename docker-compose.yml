@@ -3,7 +3,8 @@ services:
   storybook:
     image: rafcasto/techdojo-ui-component:$version
     ports:
-      - 6006:600
-    
+      - 6007:6007
+    environment:
+      - NODE_OPTIONS=--max_old_space_size=4096
     
   
