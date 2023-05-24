@@ -13,7 +13,7 @@ COPY . .
 RUN npm set progress=false && npm install
 
 # Make port 6006 available
-EXPOSE 6006
+EXPOSE 6007
 
 # run storybook app
 CMD ["yarn", "run", "storybook"]
