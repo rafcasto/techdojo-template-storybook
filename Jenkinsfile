@@ -78,7 +78,7 @@ pipeline {
                    sh 'kubectl delete svc storybook-svc -n storybook --kubeconfig=/root/kubconfig.yaml'
                    sh 'kubectl delete -n storybook  deployment storybook-dep --kubeconfig=/root/kubconfig.yaml'
                      }       
-                    sh "sed -i 's|REPO_IMAGE|${registry}/${imageName}:${tag}|' deployment.yaml"                   
+                    sh "sed -i 's|REPO_IMAGE|${registry}/${imageName}:${tag}|' storybook-deployment.yaml"                   
                     sh "kubectl apply -f storybook-deployment.yaml -n storybook --kubeconfig=/root/kubconfig.yaml"
                     sh 'kubectl apply -f storybook-service.yaml -n storybook --kubeconfig=/root/kubconfig.yaml'
                 }
