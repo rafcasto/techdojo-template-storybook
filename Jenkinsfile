@@ -64,15 +64,21 @@ pipeline {
                     args '-v /usr/local/bin/kubectl:/usr/local/bin/kubectl -v /var/jenkins_home/kubconfig.yaml:/root/kubconfig.yaml -u root'   
                 }
             }
+
+             environment {
+                registry = 'rafcasto'
+                credentialsId = 'docker-hub-credentials'
+                imageName = 'techdojo-ui-component'
+                tag = "${env.BUILD_NUMBER}"
+            }
             steps{
                 script {
                 withEnv(["version=${env.BUILD_NUMBER}"]) {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
                    sh 'kubectl delete svc storybook-svc -n storybook --kubeconfig=/root/kubconfig.yaml'
                    sh 'kubectl delete -n storybook  deployment storybook-dep --kubeconfig=/root/kubconfig.yaml'
-                     }                    
-                    sh 'kubectl apply -f storybook-deployment.yaml -n storybook --kubeconfig=/root/kubconfig.yaml'
-                    sh "kubectl set env -f storybook-deployment.yaml REPO_IMAGE=rafcasto/techdojo-ui-component:${env.BUILD_NUMBER} -n storybook --kubeconfig=/root/kubconfig.yaml"
+                     }                          
+                    sh "kubectl apply -f storybook-deployment.yaml --image=${registry}/${imageName}:${tag} -n storybook --kubeconfig=/root/kubconfig.yaml"
                     sh 'kubectl apply -f storybook-service.yaml -n storybook --kubeconfig=/root/kubconfig.yaml'
                 }
                 }
