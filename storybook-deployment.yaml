@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: storybook
-          image: rafcasto/techdojo-ui-component:9
+          image: rafcasto/techdojo-ui-component:$(version)
           ports:
             - containerPort: 6007
