@@ -61,13 +61,18 @@ pipeline {
             agent {
                 docker {
                     image 'docker:latest'
-                    args '-v /var/run/docker.sock:/var/run/docker.sock:rw -v /usr/bin/docker:/usr/bin/docker:rw -u root:root'  
+                    args '-v /usr/local/bin/kubectl:/usr/local/bin/kubectl'   
                 }
             }
             steps{
                 script {
                 withEnv(["version=${env.BUILD_NUMBER}"]) {
-                    sh 'docker-compose up -d --force-recreate'
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
+                   sh 'kubectl delete svc storybook-svc -n storybook --kubeconfig=/var/jenkins_home/kubconfig.yaml'
+                   sh 'kubectl delete -n storybook  deployment storybook-dep --kubeconfig=/var/jenkins_home/kubconfig.yaml'
+                     }
+                    sh 'kubectl apply -f storybook-deployment.yaml -n storybook --kubeconfig=/var/jenkins_home/kubconfig.yaml'
+                    sh 'kubectl apply -f storybook-service.yaml -n storybook --kubeconfig=/var/jenkins_home/kubconfig.yaml'
                 }
                 }
              }
