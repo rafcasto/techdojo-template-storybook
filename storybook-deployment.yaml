@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: storybook
-          image: $(REPO_IMAGE)
+          image: REPO_IMAGE
           ports:
             - containerPort: 6007
