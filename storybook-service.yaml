@@ -9,6 +9,6 @@ spec:
     app: storybook-app
   ports:
     - protocol: TCP
-      port: 6006
-      targetPort: 6006
+      port: 6007
+      targetPort: 6007
   type: LoadBalancer
