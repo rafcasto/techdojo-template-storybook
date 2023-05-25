@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: storybook-deployment
+  name: storybook-dep
   labels:
     app: storybook
 spec:
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: storybook
-          image: rafcasto/techdojo-ui-component:$version
+          image: rafcasto/techdojo-ui-component:9
           ports:
             - containerPort: 6006
