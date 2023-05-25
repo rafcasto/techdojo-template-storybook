@@ -71,6 +71,7 @@ pipeline {
                    sh 'kubectl delete svc storybook-svc -n storybook --kubeconfig=/root/kubconfig.yaml'
                    sh 'kubectl delete -n storybook  deployment storybook-dep --kubeconfig=/root/kubconfig.yaml'
                      }
+                    sh "kubectl set env -f storybook-deployment.yaml REPO_IMAGE=rafcasto/techdojo-ui-component:${env.BUILD_NUMBER} -n storybook --kubeconfig=/root/kubconfig.yaml"
                     sh 'kubectl apply -f storybook-deployment.yaml -n storybook --kubeconfig=/root/kubconfig.yaml'
                     sh 'kubectl apply -f storybook-service.yaml -n storybook --kubeconfig=/root/kubconfig.yaml'
                 }
