@@ -75,12 +75,12 @@ pipeline {
                 script {
                 withEnv(["version=${env.BUILD_NUMBER}"]) {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-                   sh 'kubectl delete svc storybook-svc -n techdojo --kubeconfig=/root/kubconfig.yaml'
-                   sh 'kubectl delete -n techdojo  deployment storybook-dep --kubeconfig=/root/kubconfig.yaml'
+                   sh 'kubectl delete svc storybook-svc -n ingress-nginx --kubeconfig=/root/kubconfig.yaml'
+                   sh 'kubectl delete -n ingress-nginx  deployment storybook-dep --kubeconfig=/root/kubconfig.yaml'
                      }       
                     sh "sed -i 's|REPO_IMAGE|${registry}/${imageName}:${tag}|' storybook-deployment.yaml"                   
-                    sh "kubectl apply -f storybook-deployment.yaml -n techdojo --kubeconfig=/root/kubconfig.yaml"
-                    sh 'kubectl apply -f storybook-service.yaml -n techdojo --kubeconfig=/root/kubconfig.yaml'
+                    sh "kubectl apply -f storybook-deployment.yaml -n ingress-nginx --kubeconfig=/root/kubconfig.yaml"
+                    sh 'kubectl apply -f storybook-service.yaml -n ingress-nginx --kubeconfig=/root/kubconfig.yaml'
                 }
                 }
              }
