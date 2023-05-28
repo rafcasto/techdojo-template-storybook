@@ -18,4 +18,5 @@ spec:
         - name: storybook
           image: REPO_IMAGE
           ports:
-            - containerPort: 6007
+            - name: storybook
+              containerPort: 6007

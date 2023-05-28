@@ -8,7 +8,7 @@ spec:
   selector:
     app: storybook-app
   ports:
-    - protocol: TCP
-      port: 6007
-      targetPort: 6007
-  type: LoadBalancer
+    - name: storybook
+      protocol: TCP
+      port: 80
+      targetPort: storybook
