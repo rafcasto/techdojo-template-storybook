@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: storybook-dep-qa
+  name: storybook-dep
   labels:
     app: storybook
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: storybook-app-qa
+      app: storybook-app
   template:
     metadata:
       labels:
-        app: storybook-app-qa
+        app: storybook-app
     spec:
       containers:
-        - name: storybook-qa
+        - name: storybook
           image: REPO_IMAGE
           ports:
-            - name: storybook-qa
-              containerPort: 6008
+            - name: storybook
+              containerPort: 6007

@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: storybook-qa-svc
+  name: storybook-svc
   labels:
-    app: storybook-app-qa
+    app: storybook-app
 spec:
   selector:
-    app: storybook-app-qa
+    app: storybook-app
   ports:
-    - name: storybook-qa
+    - name: storybook
       protocol: TCP
-      port: 6008
-      targetPort: storybook-qa
+      port: 6007
+      targetPort: storybook
