@@ -1,0 +1,18 @@
+.storybook-inputIncome {
+  border: 2px solid #008236;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 10px 0;
+  /* background-image: url('logo.svg'); */
+}
+
+.storybook-inputIncome:focus {
+  outline: none;
+  border-color: transparent;
+  border-bottom: 2px solid #008236;
+}
+
+.label {
+  font-family: 'Nunito Sans', Arial, sans-serif;
+  /* Change the font family as desired */
+}

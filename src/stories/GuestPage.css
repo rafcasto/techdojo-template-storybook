@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+
+.container {
+  height: 200vh;
+  width: 200vW;
+  position: relative;
+  line-height: 30px;
+  padding: 40px 20px;
+  margin: 0 auto;
+  max-width: 600px;
+  color: #333;
+}
+
+
+.centered-content {
+
+  width: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 40px 10px;
+  /* margin: 0 auto; */
+  max-width: 500px;
+}
+
+
+.centered-content label {
+  align-items: center;
+
+}
+
+.Calbutton {
+  display: flex;
+  justify-content: center;
+  margin-left: 100px;
+}
+
+/* .centered-content  Button{
+ 
+} */
+
+.taxresult {
+  border-radius: 1em;
+  background: rgba(48, 125, 59, 0.514);
+  height: 50vh;
+  width: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.storybook-Guestpage {
+  width: 300px;
+  height: 490x;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  background: linear-gradient(rgba(255, 165, 0, 0.7), rgba(255, 255, 255, 2.0)50%);
+  padding-left: 50%;
+  margin: 250px auto;
+  text-align: center;
+  border-radius: 30px;
+}
+
+
+h1 {
+  text-align: center;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  color: #008236;
+}
+
+
+h2 {
+  text-align: center;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  color: white;
+}
+
+h3 {
+  text-align: center;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  color: rgb(192, 99, 0);
+}
+
+
+h4 {
+  padding: 10px, 40px;
+  text-align: center;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+}
+
+
+p {
+  text-align: center;
+}
