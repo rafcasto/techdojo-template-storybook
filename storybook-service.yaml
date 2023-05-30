@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: storybook-svc
+  name: storybook-svc-sh
   labels:
-    app: storybook-app
+    app: storybook-app-sh
 spec:
   selector:
-    app: storybook-app
+    app: storybook-app-sh
   ports:
-    - name: storybook
+    - name: storybook-sh
       protocol: TCP
-      port: 6007
-      targetPort: storybook
+      port: 6009
+      targetPort: storybook-sh
