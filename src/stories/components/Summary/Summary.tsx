@@ -13,9 +13,10 @@ export const Summary  = ({
 <Grid container spacing={2}>
         <Grid item xs={12}  >
            Total Tax to paid <Typography style={{fontSize:25}} variant="caption" >${taxDetails.total}</Typography>
+           
         </Grid>
         <Grid item xs={12} >
-            Your tax was calculated based on <Typography style={{fontSize:25}} variant="caption" >{taxDetails.tax}%</Typography>
+        Your tax was calculated based on <Typography style={{fontSize:25}} variant="caption" >{taxDetails.tax}%</Typography>
         </Grid>
         <Grid item xs={4}>
          
