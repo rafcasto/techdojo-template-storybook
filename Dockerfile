@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Install app dependencies
-RUN npm set progress=false && npm install
+RUN npm set progress=false && npm install  --omit=dev
 
 
 # Make port 6006 available
