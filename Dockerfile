@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Install app dependencies
-RUN npm cache clear
+
 RUN npm set progress=false && npm install
 
 
