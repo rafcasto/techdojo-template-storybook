@@ -46,9 +46,9 @@ pipeline {
             steps {
                  catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){                 
                 sh 'npm package'
-                sh 'npm publish'
-                sh 'npm cache clean --force'
+                sh 'npm publish'               
                  }
+                  sh 'npm cache clean --force'
             }
         }
     
@@ -65,6 +65,7 @@ pipeline {
                 imageName = 'techdojo-ui-component'
             }
             steps {
+                sh 'docker system prune -af'
                 sh "docker build -t $registry/$imageName:${env.BUILD_NUMBER} ." // Build Docker image
     
                 script {
