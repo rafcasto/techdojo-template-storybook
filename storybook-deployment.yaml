@@ -19,7 +19,7 @@ spec:
           image: REPO_IMAGE
           env:
           - name: NPM_TOKEN
-          value: $NPM_TOKEN
+            value: $NPM_TOKEN
           ports:
             - name: storybook
               containerPort: 6007
