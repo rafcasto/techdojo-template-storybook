@@ -44,8 +44,7 @@ pipeline {
             }
             steps {
                  catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-                 sh 'npm cache clean --force'
-                sh 'npm install --legacy-peer-deps'
+             
                 sh 'npm package'
                 sh 'npm publish'
                  }
