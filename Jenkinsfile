@@ -48,6 +48,7 @@ pipeline {
                 sh 'npm install --legacy-peer-deps'
                 sh 'npm package'
                 sh 'npm publish'
+                sh 'npm cache clean --force'
                  }
             }
         }
