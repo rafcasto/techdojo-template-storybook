@@ -17,7 +17,8 @@ pipeline {
                 // git 'https://github.com/your/repository.git'
 
                 // Build the Storybook Docker image
-                sh 'npm install'
+                sh 'npm cache clean --force'
+                sh 'npm install --legacy-peer-deps'
             }
         }
     
@@ -43,9 +44,7 @@ pipeline {
                 }
             }
             steps {
-                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-                 sh 'npm cache clean --force'
-                sh 'npm install --legacy-peer-deps'
+                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){                 
                 sh 'npm package'
                 sh 'npm publish'
                 sh 'npm cache clean --force'
