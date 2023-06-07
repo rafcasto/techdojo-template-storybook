@@ -30,6 +30,7 @@ const NumericFormatCustom = React.forwardRef<NumericFormatProps, CustomProps>(
         decimalScale={2}
           {...other}
           getInputRef={ref}
+          allowNegative={false}
           onValueChange={(values) => {
             onChange({
               target: {

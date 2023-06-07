@@ -33,6 +33,22 @@ pipeline {
                 sh 'npm test'
             }
         }
+
+        stage('Package') {
+            agent {
+                docker {
+                    image 'node' // Use the desired Node.js version or any other base image
+                    registryCredentialsId 'docker-hub-credentials' // Jenkins credentials for Docker Hub
+                    args '-v /var/run/docker.sock:/var/run/docker.sock:rw -e NPM_TOKEN=$NPM_TOKEN -u root' // Run the Docker container as root user
+                }
+            }
+            steps {
+                 sh 'npm cache clean --force'
+                sh 'npm install --legacy-peer-deps'
+                sh 'npm package'
+                sh 'npm publish'
+            }
+        }
     
         stage('Publish') {
             agent {
