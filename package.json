@@ -1,11 +1,13 @@
 {
   "name": "techdojo-template-storybook",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "dependencies": {
     "@babel/cli": "^7.21.5",
     "@emotion/react": "^11.11.0",
