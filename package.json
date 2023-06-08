@@ -1,6 +1,6 @@
 {
   "name": "techdojo-template-storybook",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
