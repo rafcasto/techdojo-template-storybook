@@ -12,7 +12,7 @@ export default {
     {
       file: packageJson.main,
       format: "cjs",
-      sourcemap: 'inline'
+      sourcemap: 'export'
     },
     {
       file: packageJson.module,
