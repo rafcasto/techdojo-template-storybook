@@ -5,12 +5,12 @@ import { NumericFormat, NumericFormatProps } from 'react-number-format';
 
 
 
-  interface CustomProps {
+interface CustomProps {
     onChange: (event: { target: { name: string; value: string } }) => void;
     name: string;
   }
   
-interface InputTextProps {
+export interface InputTextProps {
     label: string;
     id:string;
     fullwidth?:boolean;

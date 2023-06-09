@@ -7,7 +7,7 @@ import {TaxDetailsModel} from '../../models/TaxDetailsModel'
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-interface TaxCalculatorProps 
+export interface TaxCalculatorProps 
 {
     taxDetails?:TaxDetailsModel; 
     hasError?:boolean;
