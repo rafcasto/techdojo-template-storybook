@@ -24,7 +24,7 @@
     "declarationDir": "lib"
   },
   "include": [
-    "src",
+    "node_modules",
     "lib"
   ]
 }
