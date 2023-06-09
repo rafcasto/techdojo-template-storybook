@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "outDir": "lib",
     "lib": [
       "dom",
       "dom.iterable",
@@ -20,7 +21,7 @@
     "noEmit": false,
     "jsx": "react-jsx",
     "declaration": true,
-    "declarationDir": "dist"
+    "declarationDir": "lib"
   },
   "include": [
     "src"
