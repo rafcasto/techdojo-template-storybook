@@ -6,7 +6,7 @@
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "dependencies": {
     "@babel/cli": "^7.21.5",
