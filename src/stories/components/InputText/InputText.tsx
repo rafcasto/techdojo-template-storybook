@@ -10,7 +10,7 @@ interface CustomProps {
     name: string;
   }
   
-export interface InputTextProps {
+interface InputTextProps {
     label: string;
     id:string;
     fullwidth?:boolean;

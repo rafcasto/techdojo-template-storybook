@@ -2,7 +2,7 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import {TaxDetailsModel} from '../../models/TaxDetailsModel'
-export interface SummaryProps {
+interface SummaryProps {
     taxDetails:TaxDetailsModel
 }
 
