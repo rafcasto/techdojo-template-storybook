@@ -1,6 +1,12 @@
 {
-  "name": "techdojo-template-storybook",
+  "name": "@rafcasto/techdojo-template-storybook",
   "version": "0.1.10",
+  "description": "this is a component library",
+  "author": {
+    "name": "Rafael",
+    "email": "rafcasto@gmail.com",
+    "url": "https://techdojo.pro/"
+  },
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
