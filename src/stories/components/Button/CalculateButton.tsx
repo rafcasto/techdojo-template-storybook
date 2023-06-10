@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
 
-interface CalculateButtonProps {
+export interface CalculateButtonProps {
   size?: 'small'|'medium'|'large';
   backgroundColor?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
   variant?:'text'|'contained'|'outlined'
