@@ -18,7 +18,7 @@ pipeline {
 
                 // Build the Storybook Docker image
                 sh 'npm cache clean --force'
-                sh 'npm install --legacy-peer-deps'
+                sh 'npm install'
             }
         }
     
