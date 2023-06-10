@@ -45,7 +45,7 @@ pipeline {
             }
             steps {
                  catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){                 
-                sh 'npm package'
+                sh 'npm run package'
                 sh 'npm publish --access public'               
                  }
                   sh 'npm cache clean --force'
